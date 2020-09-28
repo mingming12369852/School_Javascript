@@ -1,0 +1,83 @@
+<html>
+
+<head>
+    <title> Play Time :))</title>
+    <script type="text/javascript">
+
+
+
+        //遊戲參數
+        var r = Math.floor((Math.random() * 5));  // 亂數產生
+
+        var userHp = 3;                           // 玩家血量
+        var userPos01, userPos02, userPos03;      // 玩家(船、座標)
+
+
+        var botHp = 3;                            // 虛擬電腦血量
+        var botPos01, botPos02, botPos03;         // 虛擬電腦(船、座標)
+
+        var Hit_rate = 0;                         // 命中率
+
+        var sank = false;                         // 狀態
+        //========
+        //========
+
+        //Game Start 
+
+        newFerry();
+
+        while (!sank) {
+
+            Hit_rate++;
+
+            var guess = prompt("Firel!!(0-6)") - 0;
+
+            if (guess == botPos01 || guess == botPos02 || guess == botPos03) {
+                alert('HIT!! :))');
+                botHp--;
+
+            } else {
+                alert('Miss :((');
+
+            }
+
+            if (botHp == 0) {
+                alert('You Win !!');
+                sank = true;
+                calculationHit_rate();
+            }
+
+        }
+        var q = "Congratul"
+        document.write(q.fontsize(10).bold());
+        document.write("You Hit rate is " + Hit_rate + " % !!");
+
+        //========
+        //========
+
+        //Function 
+
+        function newFerry() {
+
+            botPos01 = r;
+            botPos02 = botPos01 + 1;
+            botPos03 = botPos02 + 1;
+            console.log(userPos01, userPos02, userPos03);
+        }
+
+        function calculationHit_rate() {
+
+            Hit_rate = (3 / Hit_rate) * 100;
+
+        }
+        //========
+        //========  
+    </script>
+</head>
+
+<body>
+    <h1>Hello :DD</h1>
+    <!-- <button onclick=""></button> -->
+</body>
+
+</html>
